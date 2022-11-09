@@ -1,11 +1,10 @@
 import React, { useState }  from "react";
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import './style.css'
-import { useHistory } from 'react-router-dom';
-import Home from './Home';
+import Homepage from './Homepage';
 import PizzaForm from './PizzaForm'
-import Click from './click';
-const initialFormValues ={
+import Form from './Form';
+/*const initialFormValues ={
   //dropdown
   size:'',
   //radio buttons
@@ -18,51 +17,36 @@ const initialFormValues ={
   bellPeppers:false,
   //text input
   specialInstr:'',
-}
-
-
+}*/
 
 const App = () => {
-  const [ pizza, setPizza ] = useState([
-    {
-      size:'small',
-      sauce:'red',
-      toppings:'mushroom',
-      gluten: false,
-      instructions:'anything else to add'
-    }
-  ])
-  console.log('bloomtech pizza');
-  return (
-    
-      <BrowserRouter>
-      <div className="'App">
-        <nav> 
-          <h1 className="header">Lambda Eats</h1>
-          <div className="nav-links">
-          <li>
-          <Link to= '/'>Home</Link>
-          </li>
-          <li>
-          <Link to='/pizza'>order-pizza</Link>
-          </li>
-          </div>
-        </nav> 
-    
-        <Switch>
-        <Route exact path={'/order-pizza/:id'}/>
-        
-        <Route exact path='/pizza'></Route>
-         
-          <PizzaForm />
-        <Route exact path='/'/>
-          <Home />
-        
-        </Switch>
-      </div>
-    
-    </BrowserRouter>
+
   
-  );
+ return(
+  <div className="App">
+  <BrowserRouter>
+ 
+  <nav className="order-pizza">
+    <h1>BloomTech Eats</h1>
+    <Link data-test-id='homepage' to='/'>Homepage </Link>
+    <Link data-test-id='order-pizza'to='/pizza'>order pizza </Link>
+    <Link data-test-id='cheese' to='/pizza/cheese'> cheese</Link>
+    <Link data-test-id='olives' to='/pizza/olives'> olives</Link>
+  </nav>
+
+    <Switch>
+      <Route exact path='/'>
+        <Homepage id='#order-pizza'/>
+      </Route>
+      <Route path='/pizza/:id'>
+        <Form/>
+      </Route>
+      <Route exact path='/pizza'> 
+      <PizzaForm id='pizza-form'/>
+      </Route>
+    </Switch>
+  </BrowserRouter>
+  </div>
+ )
 };
 export default App;

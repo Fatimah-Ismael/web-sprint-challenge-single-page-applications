@@ -1,9 +1,10 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 
 
 const PizzaForm = (props) => {
+   console.log(useParams())
    const history = useHistory();
    const orderPizza = () =>{
       history.push('/pizza');
@@ -22,16 +23,13 @@ const PizzaForm = (props) => {
         
     }
     return (
-       
-        <form className='pizza-form' onSubmit={onSubmit}>
-            <div className='pizza-details'></div> 
+       <div id='pizza-form'>
+        <form id='#pizza-form' onSubmit={onSubmit}>
+            <div id='#pizza-form'></div> 
              <h2>Build your own pizza</h2>
-             <button disabled ={disabled}>submit</button>
-             <label>choose size
-                <select
-                
-                name='#size-dropdown'
-                >
+             
+             <label id='size-dropdown'>choose size
+                <select>
                     <option value= ''>select size</option>
                     <option value='small'>Small</option>
                     <option value='medium'>Medium</option>
@@ -99,21 +97,29 @@ const PizzaForm = (props) => {
                 />
              </label>
              <h3>Special instructions</h3>
-             <label>name input
+             <label id='#special-text'>special instructions
                 <input 
-                id='specialInstr'
-                name='#name-input'
+                //id='#special-text'
+                name='special text'
+                type='text'
+                maxLength='50'
+                placeholder='special instructions'
+                />
+             </label>
+             <br/>
+             <label id='#name-input'>name input
+                <input 
+                name='name-input'
                 type='text'
                 maxLength='50'
                 placeholder='#name-input'
                 />
              </label>
-             <button
-            onClick={orderPizza}
-            className='order pizza button'
-            />
+              <br/>
+              <br/>
+            <button disabled ={disabled}>submit</button>
         </form>
-       
+      </div>  
     )
 
 }
