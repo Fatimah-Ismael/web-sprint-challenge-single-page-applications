@@ -38,7 +38,7 @@ const App = () => {
       <Route exact path='/'>
         <Homepage id='#order-pizza'/>
       </Route>
-      <Route path='/pizza/:id'>
+      <Route exact path='/pizza/:id'>
         <Form/>
       </Route>
       <Route exact path='/pizza'> 

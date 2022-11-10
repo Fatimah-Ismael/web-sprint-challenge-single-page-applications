@@ -6,25 +6,28 @@ function Homepage() {
    const params = useParams();
 
    const match =  useRouteMatch()
-   console.log('match', match)
+   //console.log('match', match)
   
    const { path, url }= useRouteMatch();
    
+   //const handleClick =()=>{
+     // history.push('/')
+   //}
     const handleClick= e => {
       console.log(e.currentTarget.id);
+      history.push('/pizza')
     };
+   
    return (
-      <div id="#order-pizza">
+      <div >
     <h1>This is the Home page</h1>
     <p>click the button below to get started</p>
     <Switch>
     <Link to='/pizza'>
-    <button id="order-pizza"
+    <button id ="order-pizza"
     onClick={handleClick}>#order-pizza</button>
     </Link>
-    <button 
-    id='#order-pizza'
-    onClick={()=>history.push('/')}>2nd button</button>
+    
     </Switch>
     </div>
    )
