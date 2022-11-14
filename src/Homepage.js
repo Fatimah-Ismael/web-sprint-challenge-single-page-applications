@@ -1,14 +1,14 @@
 import React from "react";
-import { useHistory, useParams, useRouteMatch, Link, Switch } from 'react-router-dom';
+import { useHistory, Link, Switch } from 'react-router-dom';
 
 function Homepage() {
    const history = useHistory();
-   const params = useParams();
+   //const params = useParams();
 
-   const match =  useRouteMatch()
+   //const match =  useRouteMatch()
    //console.log('match', match)
   
-   const { path, url }= useRouteMatch();
+   //const { path, url }= useRouteMatch();
    
    //const handleClick =()=>{
      // history.push('/')
@@ -19,16 +19,16 @@ function Homepage() {
     };
    
    return (
-      <div >
+      <div>
     <h1>This is the Home page</h1>
     <p>click the button below to get started</p>
-    <Switch>
+    
     <Link to='/pizza'>
     <button id ="order-pizza"
     onClick={handleClick}>order pizza</button>
     </Link>
     
-    </Switch>
+  
     </div>
    )
 }

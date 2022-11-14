@@ -67,10 +67,10 @@ const PizzaForm = (props) => {
 
     return (
      
-       <div id='pizza-form'>
+       <div>
         
         <form id='pizza-form' onSubmit={onSubmit}>
-            <div id='pizza-form'></div> 
+            
              <h2>Build your own pizza</h2>
              
              <label id='size-dropdown'>choose size
