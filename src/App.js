@@ -36,10 +36,10 @@ const App = () => {
 
     <Switch>
       <Route exact path='/'>
-        <Homepage id='#order-pizza'/>
+        <Homepage id='order-pizza'/>
       </Route>
       <Route exact path='/pizza/:id'>
-        <Form/>
+       
       </Route>
       <Route exact path='/pizza'> 
       <PizzaForm id='pizza-form'/>

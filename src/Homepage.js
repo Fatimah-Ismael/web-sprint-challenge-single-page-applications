@@ -25,7 +25,7 @@ function Homepage() {
     <Switch>
     <Link to='/pizza'>
     <button id ="order-pizza"
-    onClick={handleClick}>#order-pizza</button>
+    onClick={handleClick}>order pizza</button>
     </Link>
     
     </Switch>
