@@ -24,7 +24,7 @@ const App = () => {
   
  return(
   <div className="App">
-  <BrowserRouter>
+  
  
   <nav className="order-pizza">
     <h1>BloomTech Eats</h1>
@@ -44,7 +44,7 @@ const App = () => {
       <PizzaForm/>
       </Route>
     </Switch>
-  </BrowserRouter>
+  
   </div>
  )
 };
