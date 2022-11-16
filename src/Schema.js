@@ -5,6 +5,11 @@ const schema = yup.object().shape({
     size: yup.string().oneOf(['small', 'medium', 'large'], 'select a siz pizza'),
     sauce: yup.string().oneOf(['red', 'white'], 'select a sauce'),
     specialText: yup.string().required('enter something').min(4,'4 characters min' ),
+    pepperoni: yup.boolean(),
+    olives: yup.boolean(),
+    mushrooms: yup.boolean(),
+    pineapple: yup.boolean(),
+
 });
 
 export default schema; 

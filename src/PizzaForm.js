@@ -17,13 +17,16 @@ const PizzaForm = (props) => {
     //console.log(props)
     const onSubmit = event => {
         event.preventDefault()
+        const newForm = { inputName: form.inputName.trim(), size: form.size, sauce: form.sauce, specialText: form.specialText.trim() }
         axios.post('https://reqres.in/api/orders', {...form})
-         .then((request) => {
-            setForm(request.data)
-            setForm(initialFormValues)
+         .then((res) => {
+            setForm(res.data)
+            console.log(res.data)
+            //setForm(initialFormValues)
          })
-         .catch((err)=>{console.log(err)})
-         submit()
+
+         .catch((err)=>{console.log(err.response)})
+         //submit()
         
     }
     const [form, setForm] = useState(initialFormValues);
@@ -73,8 +76,8 @@ const PizzaForm = (props) => {
             
              <h2>Build your own pizza</h2>
              
-             <label id='size-dropdown'>choose size
-                <select>
+             <label>choose size
+                <select id='size-dropdown'>
                     <option value= ''>select size</option>
                     <option value='small'>Small</option>
                     <option value='medium'>Medium</option>
@@ -142,8 +145,9 @@ const PizzaForm = (props) => {
                 />
              </label>
              <h3>Special instructions</h3>
-             <label id='special-text'>special instructions
+             <label >special instructions
                 <input 
+                id='special-text'
                 name='specialText'
                 type='text'
                 maxLength='50'
@@ -169,7 +173,7 @@ const PizzaForm = (props) => {
              </label>
               <br/>
               <br/>
-              <button disabled ={disabled} >submit</button>
+              <button id='order-button' disabled ={disabled} >submit</button>
         </form>
       </div>  
     )
